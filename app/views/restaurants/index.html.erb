@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Restaurants</h1>
+  <% @restaurants.each do |restaurant| %>
+    <ul class='border-bottom pb-1 w-50'><%=  link_to("Name: #{restaurant.name}, Address: #{restaurant.address}, Rating: #{restaurant.stars} |", restaurant_path(restaurant.id)) %>
+      <%= link_to "Delete", restaurant_path(restaurant), method: :delete, data: { confirm: "Are you sure?" }, class:'text-danger' %>
+    </ul>
+  <% end %>
+
+  <%= link_to "New restaurant", new_restaurant_path, class: 'btn btn-secondary' %>
+</div>
