@@ -1,5 +1,9 @@
 <div class="container">
   <h1>All our restaurants</h1>
+  <div class="spotlight bg-white rouded border p-2 w-25 mb-3 text-center text-white">
+    <h3>💡 Spotlight</h3>
+    <h5><%= @restaurants.sample.name %></h5>
+  </div>
   <div class="row">
     <% @restaurants.each do |restaurant| %>
     <div class="col-3">

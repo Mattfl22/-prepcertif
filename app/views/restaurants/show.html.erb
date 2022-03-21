@@ -2,12 +2,16 @@
   <h1><span class='restaurant-name'><%= @restaurant.name %></span></h1>
   <div class='restaurant-details'>
     <div class='card-image w-25'>
+      <div class="card-image-details">
+        <p>👨🏻‍🍳 <%= @restaurant.chef %></p>
+        <p class='btn btn-light text-black fs-6'> Cuisine type: <%= @restaurant.cuisine_type %></p>
+      </div>
     </div>
 
     <div class='card-description w-25'>
       <h3 class='border-bottom'>Details</h3>
       <p><span class='fw-bold'>🖍 Description:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi cum nobis non ratione nostrum esse, nam, rem qui adipisci minus cumque error laudantium tempore recusandae eos harum! Vero, labore dolorem!</p>
-      <p>📍 <span class='fw-bold'>Adress: </span><%= @restaurant.address %></p>
+      <p>📍 <span class='fw-bold'>Address: </span><%= @restaurant.address %></p>
       <p>⭐️ <span class='fw-bold'>Rating:</span> <%= @restaurant.stars %></p>
     </div>
 
