@@ -1,16 +1,29 @@
 <div class="container">
-  <h1><%= @restaurant.name %></h1>
-  <h3>Adress: <%= @restaurant.address %></h3>
-  <h3>Rating: <%= @restaurant.stars %></h3>
-  <h3>Reviews: </h3>
-  <% @restaurant.reviews.each do |review| %>
-    <p><%= "- #{review.comment} | Rating: #{review.rating}" %>
-    <%= link_to 'Remove review', review_path(review), method: :delete, data: { confirm: "Are you sure?" }, class:'text-danger' %>
+  <h1><span class='restaurant-name'><%= @restaurant.name %></span></h1>
+  <div class='restaurant-details'>
+    <div class='card-image w-25'>
+    </div>
 
-    </p>
-  <% end %>
-  <%= link_to "Leave a review", new_restaurant_review_path(@restaurant) %>
+    <div class='card-description w-25'>
+      <h3 class='border-bottom'>Details</h3>
+      <p><span class='fw-bold'>🖍 Description:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi cum nobis non ratione nostrum esse, nam, rem qui adipisci minus cumque error laudantium tempore recusandae eos harum! Vero, labore dolorem!</p>
+      <p>📍 <span class='fw-bold'>Adress: </span><%= @restaurant.address %></p>
+      <p>⭐️ <span class='fw-bold'>Rating:</span> <%= @restaurant.stars %></p>
+    </div>
+
+    <div class="card-description w-50">
+      <h3 class='border-bottom'>Reviews </h3>
+      <% @restaurant.reviews.each do |review| %>
+        <p><%= "📌 Comment: #{review.comment} | Rating: #{review.rating}" %>
+        <%= link_to '❌', review_path(review), method: :delete, data: { confirm: "Are you sure?" }, class:'text-danger text-decoration-none' %>
+        </p>
+      <% end %>
+      <div class='btn-review'>
+        <%= link_to "Leave a review", new_restaurant_review_path(@restaurant), class:'btn btn-secondary' %>
+      </div>
+    </div>
+
+  </div>
   <br>
-  <%= link_to "See all restaurants", restaurants_path %>
-
+  <%= link_to "See all restaurants", restaurants_path, class:'btn btn-primary'%>
 </div>
